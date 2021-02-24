@@ -62,12 +62,6 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Galeri</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="{{ route('Datasiswa') }}">
-              <i class="material-icons">person</i>
-              <p>Siswa</p>
-            </a>
-          </li>
 
           <!-- <li class="nav-item ">
             <a class="nav-link" href="./tables.html">

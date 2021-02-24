@@ -61,12 +61,6 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Galeri</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="{{ route('Datasiswa') }}">
-            <i class="material-icons">person</i>
-              <p>Siswa</p>
-            </a>
-          </li>
 
             <!-- <li class="nav-item ">
             <a class="nav-link" href="./tables.html">
@@ -114,7 +108,7 @@ The above copyright notice and this permission notice shall be included in all c
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Table Siswa</a>
+            <a class="navbar-brand" href="javascript:;">Table Galeri</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -147,7 +141,7 @@ The above copyright notice and this permission notice shall be included in all c
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Tentang</h4>
+                  <h4 class="card-title ">Galeri</h4>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
