@@ -49,13 +49,13 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item active ">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ route('tentang.index') }}">
-            <i class="material-icons">perm_media</i>
+            <i class="material-icons">account_balance</i>
               <p>Tentang</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item active ">
             <a class="nav-link" href="{{ route('galeri.index') }}">
               <i class="material-icons">perm_media</i>
               <p>Galeri</p>
@@ -67,6 +67,7 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Siswa</p>
             </a>
           </li>
+
             <!-- <li class="nav-item ">
             <a class="nav-link" href="./tables.html">
               <i class="material-icons">content_paste</i>
@@ -101,8 +102,8 @@ The above copyright notice and this permission notice shall be included in all c
               <i class="material-icons">language</i>
               <p>RTL Support</p>
             </a>
-          </li> -->
-          
+          </li>
+           -->
         </ul>
       </div>
     </div>
@@ -113,7 +114,7 @@ The above copyright notice and this permission notice shall be included in all c
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Add Siswa</a>
+            <a class="navbar-brand" href="javascript:;">Table Siswa</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -132,44 +133,7 @@ The above copyright notice and this permission notice shall be included in all c
               </div>
             </form>
             <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:;">
-                  <i class="material-icons">dashboard</i>
-                  <p class="d-lg-none d-md-block">
-                    Stats
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">notifications</i>
-                  <span class="notification">5</span>
-                  <p class="d-lg-none d-md-block">
-                    Some Actions
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Mike John responded to your email</a>
-                  <a class="dropdown-item" href="#">You have 5 new tasks</a>
-                  <a class="dropdown-item" href="#">You're now friend with Andrew</a>
-                  <a class="dropdown-item" href="#">Another Notification</a>
-                  <a class="dropdown-item" href="#">Another One</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">person</i>
-                  <p class="d-lg-none d-md-block">
-                    Account
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="#">Profile</a>
-                  <a class="dropdown-item" href="#">Settings</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Log out</a>
-                </div>
-              </li>
+            
             </ul>
           </div>
         </div>
@@ -189,32 +153,31 @@ The above copyright notice and this permission notice shall be included in all c
                   <div class="table-responsive">
                     <table class="table">
                       <thead class=" text-primary">
+                        <th>No</th>
+                        <th>Foto</th>
+                        <th>Aksi</th>
+                      </thead>
+                      <tbody>
+
+                        <!-- ISI TABLE -->
+                        @php
+                        $no = 1;
+                        @endphp
+                        @foreach ($galeris as $item)
+                        <tr>
+                        <td>{{ $no++ }}</td>
+                        <td><img src="{{ asset('foto/'.$item->foto) }}" width="80px" alt="" srcset=""></td>
                         
-
-                  <!-- CREATE -->
-                  <div class="card-body">
-                        <form action="{{ route('tentang.store') }}" method="post" enctype="multipart/form-data">
-                              {{ csrf_field() }}
-                              <!-- <div class="form-group">
-                                    <label for="foto">Foto</label>
-                                    <button type="submit" class="btn btn-warning">
-                                          <input type="file" class="form-control-file" name="foto" required>      
-                                    </button>
-                              </div> -->
-                              <div class="btn btn-primary btn-sm float-left">
-                                    <span>Choose file</span>
-                                    <input type="file" name="foto" required>
-                              </div>
-                              <br>
-                              <br>
-                              <div class="form-group">
-                                    <textarea name="keterangan" id="keterangan" cols="135" rows="6" placeholder="Keterangan" required></textarea>
-                              </div>
-
-                              <div class="form-group">
-                                    <button type="submit" class="btn btn-success">Simpan Data</button>
-                              </div>
-                        </form>
+                        <td>
+                              <a href="{{ route('galeri.edit', $item->id) }}"><i style="color : blue" class="material-icons">edit</i> </a> | 
+                              <a href="{{ route('galeri.delete', $item->id) }}"><i style="color : red" class="material-icons">delete</i> </a>
+                       </td>
+                        @endforeach
+                       
+                        <!-- BUTTON ADD -->
+                        <a href="{{ route('galeri.create') }}" class="btn btn-success"><span class="">Tambah Data</span></a>
+                        <!-- ---- -->
+                        </tr>
                       </tbody>
                     </table>
                   </div>
@@ -445,6 +408,7 @@ The above copyright notice and this permission notice shall be included in all c
 
     });
   </script>
-</body>
 
+@include('sweetalert::alert')
+</body>
 </html>

@@ -52,8 +52,14 @@ The above copyright notice and this permission notice shall be included in all c
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="{{ route('tentang.index') }}">
-              <i class="material-icons">person</i>
+              <i class="material-icons">account_balance</i>
               <p>Tentang</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{{ route('galeri.index') }}">
+              <i class="material-icons">perm_media</i>
+              <p>Galeri</p>
             </a>
           </li>
           <li class="nav-item ">

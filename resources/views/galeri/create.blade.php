@@ -49,13 +49,13 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item active ">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ route('tentang.index') }}">
-            <i class="material-icons">perm_media</i>
+            <i class="material-icons">account_balance</i>
               <p>Tentang</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item active">
             <a class="nav-link" href="{{ route('galeri.index') }}">
               <i class="material-icons">perm_media</i>
               <p>Galeri</p>
@@ -67,6 +67,7 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Siswa</p>
             </a>
           </li>
+          
             <!-- <li class="nav-item ">
             <a class="nav-link" href="./tables.html">
               <i class="material-icons">content_paste</i>
@@ -193,7 +194,7 @@ The above copyright notice and this permission notice shall be included in all c
 
                   <!-- CREATE -->
                   <div class="card-body">
-                        <form action="{{ route('tentang.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('galeri.store') }}" method="post" enctype="multipart/form-data">
                               {{ csrf_field() }}
                               <!-- <div class="form-group">
                                     <label for="foto">Foto</label>
@@ -205,12 +206,9 @@ The above copyright notice and this permission notice shall be included in all c
                                     <span>Choose file</span>
                                     <input type="file" name="foto" required>
                               </div>
-                              <br>
-                              <br>
-                              <div class="form-group">
-                                    <textarea name="keterangan" id="keterangan" cols="135" rows="6" placeholder="Keterangan" required></textarea>
-                              </div>
-
+                            
+                                <br>
+                                <br>                                
                               <div class="form-group">
                                     <button type="submit" class="btn btn-success">Simpan Data</button>
                               </div>
