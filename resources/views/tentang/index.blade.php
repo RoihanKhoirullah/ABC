@@ -49,13 +49,13 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item active">
             <a class="nav-link" href="{{ route('tentang.index') }}">
             <i class="material-icons">person</i>
               <p>Tentang</p>
             </a>
           </li>
-          <li class="nav-item active ">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ route('Datasiswa') }}">
             <i class="material-icons">person</i>
               <p>Siswa</p>
@@ -141,47 +141,38 @@ The above copyright notice and this permission notice shall be included in all c
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Simple Table</h4>
-                  <p class="card-category"> Here is a subtitle for this table</p>
+                  <h4 class="card-title ">Tentang</h4>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
                     <table class="table">
                       <thead class=" text-primary">
-                        <th>
-                          No
-                        </th>
-                        <th>
-                          Nama
-                        </th>
-                        <th>
-                          Aksi
-                        </th>
-                       
-                           
+                        <th>No</th>
+                        <th>Foto</th>
+                        <th>Keterangan</th>
+                        <th>Aksi</th>
                       </thead>
                       <tbody>
 
                         <!-- ISI TABLE -->
-                        @foreach ($dtsiswa as $item)
+                        @php
+                        $no = 1;
+                        @endphp
+                        @foreach ($tentangs as $item)
                         <tr>
-                        <td>{{ $item->id }}</td>
-                        <td>{{ $item->nama }}</td>
+                        <td>{{ $no++ }}</td>
+                        <td><img src="{{ asset('foto/'.$item->foto) }}" width="80px" alt="" srcset=""></td>
+                        <td>{{ $item->keterangan }}</td>
                         <td>
-                        <a href="{{ route('Editsiswa', $item->id) }}"><i style="color : blue" class="material-icons">edit</i> </a> | 
-
-                        <a href="{{ route('Deletesiswa', $item->id) }}"><i style="color : red" class="material-icons">delete</i> </a>
+                              <a href="{{ route('tentang.edit', $item->id) }}"><i style="color : blue" class="material-icons">edit</i> </a> | 
+                              <a href="{{ route('tentang.delete', $item->id) }}"><i style="color : red" class="material-icons">delete</i> </a>
                        </td>
                         @endforeach
                        
-
                         <!-- BUTTON ADD -->
-                        <a href="{{ route('Createsiswa') }}" class="btn btn-success"><span class="">Tambah Data</span></a>
+                        <a href="{{ route('tentang.create') }}" class="btn btn-success"><span class="">Tambah Data</span></a>
                         <!-- ---- -->
                         </tr>
-
-
-
                       </tbody>
                     </table>
                   </div>

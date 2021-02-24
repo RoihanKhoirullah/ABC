@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Userlogin extends Model
+class Tentang extends Model
 {
-    protected $table = "userlogin";
+    protected $table = "tentangs";
     protected $primarykey = "id";
     protected $fillable = [
-        'id' , 'username' , 'password' ];
+        'id' , 'foto', 'keterangan' ];
 }
