@@ -163,9 +163,12 @@ The above copyright notice and this permission notice shall be included in all c
                       <tbody>
 
                         <!-- ISI TABLE -->
+                        @php
+                        $no = 1;
+                        @endphp
                         @foreach ($dtsiswa as $item)
                         <tr>
-                        <td>{{ $item->id }}</td>
+                        <td>{{ $no++ }}</td>
                         <td>{{ $item->nama }}</td>
                         <td>
                         <a href="{{ route('Editsiswa', $item->id) }}"><i style="color : blue" class="material-icons">edit</i> </a> | 

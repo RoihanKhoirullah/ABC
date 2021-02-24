@@ -196,15 +196,13 @@ The above copyright notice and this permission notice shall be included in all c
                                           <img src="{{ asset('foto/'.$tentangs->foto) }}" width="100px" alt="">
                                     </div>
                                     <br>
+                                    <br>
+                                    <br>
                                     <div class="btn btn-primary btn-sm float-left">
                                           <span>Choose file</span>
                                           <input type="file" name="foto" required>
                                     </div>
-                                    
-                                    <!-- <button type="submit" class="btn btn-warning">
-                                          <img src="{{ asset('foto/'.$tentangs->foto) }}" width="100px" alt="">
-                                          <input type="file" class="form-control-file" name="foto" required>      
-                                    </button> -->
+
                               </div>
 
                               <div class="form-group">

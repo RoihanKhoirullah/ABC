@@ -34,4 +34,3 @@ Route::post('/tentang-store' , 'TentangController@store')->name('tentang.store')
 Route::get('/admin/tentang-edit/{id}' , 'TentangController@edit')->name('tentang.edit');
 Route::put('/tentang-update/{id}' , 'TentangController@update')->name('tentang.update');
 Route::get('/tentang-delete/{id}' , 'TentangController@destroy')->name('tentang.delete');
-
