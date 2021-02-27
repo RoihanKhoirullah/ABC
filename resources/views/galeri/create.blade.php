@@ -38,13 +38,15 @@ The above copyright notice and this permission notice shall be included in all c
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
-        </a></div>
+      <div class="logo">
+        <a href="#" class="simple-text logo-normal">
+        {{ Auth::user()->name }}
+        </a>
+      </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item  ">
-            <a class="nav-link" href="/admin">
+            <a class="nav-link" href="/home">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
             </a>
@@ -66,6 +68,19 @@ The above copyright notice and this permission notice shall be included in all c
               <i class="material-icons">perm_media</i>
               <p>Galeri</p>
             </a>
+          </li>
+          <li>
+            <div>
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                    <i class="material-icons">logout</i>
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
           </li>
           
             <!-- <li class="nav-item ">
