@@ -15,10 +15,10 @@ The above copyright notice and this permission notice shall be included in all c
 <head>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('AdminLTE/img/apple-icon.png') }}">
-  <link rel="icon" type="image/png" href="{{ asset('AdminLTE/img/') }}">
+  <link rel="icon" type="image/png" href="{{ asset('AdminLTE/img/favicon.png') }}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
-    Tentang
+    Material Dashboard by Creative Tim
   </title>
   <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -38,7 +38,7 @@ The above copyright notice and this permission notice shall be included in all c
 
         Tip 2: you can also add an image using data-image tag
     -->
-      <div class="logo">
+    <div class="logo">
         <a href="#" class="simple-text logo-normal">
         {{ Auth::user()->name }}
         </a>
@@ -51,19 +51,19 @@ The above copyright notice and this permission notice shall be included in all c
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="{{ route('data-pengguna.index') }}">
+          <li class="nav-item active ">
+            <a class="nav-link" href="#">
               <i class="material-icons">person</i>
               <p>User</p>
             </a>
           </li>
-          <li class="nav-item active ">
+          <li class="nav-item ">
             <a class="nav-link" href="{{ route('tentang.index') }}">
             <i class="material-icons">account_balance</i>
               <p>Tentang</p>
             </a>
           </li>
-          <li class="nav-item ">
+          <li class="nav-item  ">
             <a class="nav-link" href="{{ route('galeri.index') }}">
               <i class="material-icons">perm_media</i>
               <p>Galeri</p>
@@ -82,18 +82,39 @@ The above copyright notice and this permission notice shall be included in all c
                 </form>
             </div>
           </li>
-          
+
         </ul>
       </div>
     </div>
     <div class="main-panel">
 
 
+          
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:;">Table Tentang</a>
+            <a class="navbar-brand" href="javascript:;">Table Data Pengguna</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end">
+            <form class="navbar-form">
+              <div class="input-group no-border">
+                <input type="text" value="" class="form-control" placeholder="Search...">
+                <button type="submit" class="btn btn-white btn-round btn-just-icon">
+                  <i class="material-icons">search</i>
+                  <div class="ripple-container"></div>
+                </button>
+              </div>
+            </form>
+            <ul class="navbar-nav">
+            
+            </ul>
           </div>
         </div>
       </nav>
@@ -106,16 +127,30 @@ The above copyright notice and this permission notice shall be included in all c
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Tentang</h4>
+                  <h4 class="card-title ">Data Pengguna</h4>
+                  <p class="card-category"></p>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
                     <table class="table">
                       <thead class=" text-primary">
-                        <th>No</th>
-                        <th>Foto</th>
-                        <th>Keterangan</th>
-                        <th>Aksi</th>
+                        <th>
+                          No
+                        </th>
+                        <th>
+                          Nama
+                        </th>
+                        <th>
+                          Email
+                        </th>
+                        <th>
+                          Password
+                        </th>
+                        <th>
+                          Aksi
+                        </th>
+                       
+                           
                       </thead>
                       <tbody>
 
@@ -123,21 +158,18 @@ The above copyright notice and this permission notice shall be included in all c
                         @php
                         $no = 1;
                         @endphp
-                        @foreach ($tentangs as $item)
+                        @foreach ($dtpengguna as $item)
                         <tr>
                         <td>{{ $no++ }}</td>
-                        <td><img src="{{ asset('foto/'.$item->foto) }}" width="80px" alt="" srcset=""></td>
-                        <td>{{ $item->keterangan }}</td>
+                        <td>{{ $item->name }}</td>
+                        <td>{{ $item->email }}</td>
+                        <td>{{ $item->password }}</td>
                         <td>
-                              <a href="{{ route('tentang.edit', $item->id) }}"><i style="color : blue" class="material-icons">edit</i> </a> | 
-                              <a href="{{ route('tentang.delete', $item->id) }}"><i style="color : red" class="material-icons">delete</i> </a>
+                        <a href="{{ route('delete', $item->id) }}"><i style="color : red" class="material-icons">delete</i> </a>
                        </td>
-                        @endforeach
-                       
-                        <!-- BUTTON ADD -->
-                        <a href="{{ route('tentang.create') }}" class="btn btn-success"><span class="">Tambah Data</span></a>
-                        <!-- ---- -->
-                        </tr>
+                        
+                       @endforeach
+
                       </tbody>
                     </table>
                   </div>

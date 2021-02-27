@@ -35,6 +35,10 @@ Route::get('/home/galeri-edit/{id}' , 'GaleriController@edit')->name('galeri.edi
 Route::put('/galeri-update/{id}' , 'GaleriController@update')->name('galeri.update');
 Route::get('/galeri-delete/{id}' , 'GaleriController@destroy')->name('galeri.delete');
 
+// Data Penggung
+Route::get('/home/data-pengguna' , 'DatapenggunaController@index')->name('data-pengguna.index');
+Route::get('/delete/{id}' , 'DatapenggunaController@destroy')->name('delete');
+
 // Login
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

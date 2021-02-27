@@ -53,7 +53,7 @@ The above copyright notice and this permission notice shall be included in all c
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('data-pengguna.index') }}">
               <i class="material-icons">person</i>
               <p>User</p>
             </a>
