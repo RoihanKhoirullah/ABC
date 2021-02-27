@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth.login');
 });
+Route::get('/login', function () {
+    return view('auth.login');
+});
 
 // TENTANG
 Route::get('/home/tentang' , 'TentangController@index')->name('tentang.index');
@@ -32,7 +35,7 @@ Route::get('/home/galeri-edit/{id}' , 'GaleriController@edit')->name('galeri.edi
 Route::put('/galeri-update/{id}' , 'GaleriController@update')->name('galeri.update');
 Route::get('/galeri-delete/{id}' , 'GaleriController@destroy')->name('galeri.delete');
 
+// Login
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
